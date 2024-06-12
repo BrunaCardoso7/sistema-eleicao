@@ -10,7 +10,7 @@ async function login(req, res) {
             res.redirect('/welcome?username=' + user.usuario + '&tipo=' + user.tipo);
         } else {
             // Credenciais inválidas, redirecionar de volta para a página de login
-            res.redirect('/login');
+            res.redirect('login');
         }
     } catch (error) {
         console.error('Erro durante a autenticação:', error);
