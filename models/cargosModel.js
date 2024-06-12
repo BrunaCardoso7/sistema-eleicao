@@ -29,9 +29,20 @@ async function deleteByIdCargos(id) {
         throw error
     }
 }
+async function updateCargos(id, cargo, eleicao_id) {
+    try {
+        const cadidatoChapa = await pool.query('UPDATE Cargo SET  Nome = ?, EleicaoID = ? WHERE CargoID = ?',
+        [cargo, eleicao_id, id])
+        
+        return cadidatoChapa
+    } catch (error) {
+        throw error;
+    }
+}
 
 module.exports = {
     createCargo,
     findAllCargos,
-    deleteByIdCargos
+    deleteByIdCargos,
+    updateCargos
 }

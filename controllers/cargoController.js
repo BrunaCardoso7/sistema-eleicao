@@ -37,8 +37,21 @@ async function deleteFindByIdCargo (req, res) {
     }
 }
 
+async function updateByIdCargoController (req, res) {
+    try {
+        const {nome, eleicao_id, id} = req.body
+
+        const cargo = await cargosModel.updateCargos(nome, eleicao_id, id)
+
+        return res.status(200).send({"Deletado com sucesso": cargo})
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     createCargosController,
     findAllCargosController,
-    deleteFindByIdCargo
+    deleteFindByIdCargo,
+    updateByIdCargoController
 }
