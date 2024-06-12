@@ -4,7 +4,7 @@ async function createCargosController (req, res) {
     try {
         const {nome, eleicao_id} = req.body
 
-        if(!nome | !eleicao_id) {
+        if(!nome || !eleicao_id) {
             res.send({"msg": "falta dados"})
         }
         

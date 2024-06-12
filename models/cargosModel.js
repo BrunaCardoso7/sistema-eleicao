@@ -29,6 +29,7 @@ async function deleteByIdCargos(id) {
         throw error
     }
 }
+
 module.exports = {
     createCargo,
     findAllCargos,

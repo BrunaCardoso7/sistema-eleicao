@@ -4,6 +4,10 @@ const router = express.Router();
 const usuarioController = require('../controllers/usuarioController');
 const fornecedorRouter = require('./fornecedores');
 const cargoRouter = require('./cargosRouter')
+const eleicaoRouter = require('./eleicaoRouter')
+const chapasRouter = require('./chapasRouter')
+const candidatoChapa = require('./candidatoChapaRouter')
+const votosRouter = require('./votosRouter')
 // Rota GET para exibir a página de login
 router.get('/', (req, res) => {
     res.render('login');
@@ -13,4 +17,8 @@ router.post('/login', usuarioController.login);
 router.get('/welcome', usuarioController.welcome);
 router.use('/fornecedores', fornecedorRouter);
 router.use('/cargos', cargoRouter);
+router.use('/eleicao', eleicaoRouter);
+router.use('/chapas', chapasRouter);
+router.use('/candidatochapa', candidatoChapa);
+router.use('/votos', votosRouter);
 module.exports = router;
