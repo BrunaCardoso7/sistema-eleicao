@@ -25,6 +25,8 @@ return fornecedor[0];
         throw error;
     }
 }
+
+
 async function insertFornecedor(nome, telefone, revendedor) {
     try {
         await pool.query('INSERT INTO fornecedor (Fornecedor, Telefone, Revendedor) VALUES (?, ?, ?)',
@@ -36,6 +38,8 @@ async function insertFornecedor(nome, telefone, revendedor) {
         throw error;
     }
 }
+
+
 async function getFornecedorById(id) {
     try {
         const [fornecedor] = await pool.query('SELECT * FROM fornecedor WHERE Id = ?', [id]);

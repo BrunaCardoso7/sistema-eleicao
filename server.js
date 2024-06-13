@@ -24,8 +24,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const dotenv = require('dotenv');
-dotenv.config();
+
 
 // Middleware para analisar o corpo das solicitações
 app.use(express.urlencoded({ extended: true }));
@@ -34,7 +33,8 @@ app.use(express.json());
 // Configurando o Express para usar EJS como mecanismo de modelo
 app.set('view engine', 'ejs');
 
-// Middleware para servir arquivos estáticos
+// Middleware para servir arquivos estáticos                                                                                                                                                                                                        
+
 app.use(express.static('public'));
 
 // Middleware para registrar as rotas
