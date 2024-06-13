@@ -18,6 +18,8 @@ const express = require('express');
 const router = express.Router();
 const usuarioController = require('../controllers/usuarioController');
 const fornecedorRouter = require('./fornecedores');
+const candidatoRouter = require('./candidatos');
+const eleitorRouter = require('./eleitores');
 
 // Rota GET para exibir a página de login
 router.get('/', (req, res) => {
@@ -28,5 +30,6 @@ router.get('/', (req, res) => {
 router.post('/login', usuarioController.login);
 router.get('/welcome', usuarioController.welcome);
 router.use('/fornecedores', fornecedorRouter);
-
+router.use('/candidatos', candidatoRouter);
+router.use('/eleitores', eleitorRouter);
 module.exports = router;
