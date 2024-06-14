@@ -1,4 +1,5 @@
 const candidatosModel = require("../models/candidatosModel");
+
 async function createCandidatos(req, res) {
     const { nome, cpf, endereco } = req.body;
     console.log(nome, cpf, endereco)
@@ -17,8 +18,8 @@ async function createCandidatos(req, res) {
 async function listCandidatos(req, res) {
     try {
         const candidatos = await candidatosModel.findAllCandidatos();
-        return res.status(200).send(candidatos);
-        // res.render("candidatos", { candidatos })
+        console.log(candidatos)
+        // return res.render('eleicao/candidatoHome' ,{ candidatos })
     } catch (error) {
         console.error("Erro ao buscar candidatos", error);
         res.render("error", { message: "Erro ao buscar candidatos" })

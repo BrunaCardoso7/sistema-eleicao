@@ -30,18 +30,19 @@
               <th scope="col">Endereço</th>
               <th scope="col">Ações</th>
             </tr>
+            <% candidatos.forEach(candidato => { %>
             <tr>
-              <td>1</td>
-              <td>Nome do Candidato</td>
-              <td>123.456.789-00</td>
-              <td>Endereço Exemplo, 123</td>
+              <td><%= candidato.CandidatoID %></td>
+              <td><%= candidato.Nome %></td>
+              <td><%= candidato.CPF %></td>
+              <td><%= candidato.Endereco %></td>
               <td>
                 <a href="/candidatoHome/1" class="btn btn-primary">Ver Detalhes</a>
                 <a href="/editarCandidato/1" class="btn btn-secondary">Editar</a>
                 <a href="/deletarCandidato/1" class="btn btn-danger">Deletar</a>
               </td>
             </tr>
-            
+            <% }); %>
          
         </table>
       </div>
