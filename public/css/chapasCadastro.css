@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #151269;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #0f1056;
+    color: white;
+    position: fixed;
+    top: 0px;
+}
+
+.header-value {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.button-left {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #151269;
+    cursor: pointer; 
+    border-radius: 50%; 
+}
+
+.button-left:hover {
+    background-color: #0056b3;
+}
+
+.button-left i {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #aad6ec;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 95px !important;
+}
+
+.container h2 {
+    color: black;
+    margin-bottom: 10px; 
+    text-align: left;
+}
+
+.subtitle {
+    color: white;
+    margin-bottom: 20px; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    color: #555;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 55px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold; 
+    text-transform: uppercase; 
+    width: 100%;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #113065;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+a:hover {
+    text-decoration: underline;
+}

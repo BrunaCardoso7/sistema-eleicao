@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // //resp pelo controle e chamada da aplicacao
 
 // const usuarioModel = require('../models/usuarioModel');
@@ -25,18 +26,25 @@
 // module.exports = { login, welcome };
 
 // controllers/usuarioController.js
+=======
+>>>>>>> 18900c9 (Feat: Views and integrations)
 const usuarioModel = require('../models/usuarioModel');
 
 async function login(req, res) {
     const { username, password } = req.body;
     try {
         const user = await usuarioModel.getUserByUsernameAndPassword(username, password);
+
+        console.log(user)
         if (user) {
-            // Usuário autenticado, redirecionar para a página de boas-vindas
-            res.redirect('/welcome?username=' + user.usuario + '&tipo=' + user.tipo);
+            res.redirect('welcome?username=' + user.Nome + '&tipo=' + user.Tipo);
         } else {
+<<<<<<< HEAD
             // Credenciais inválidas, redirecionar de volta para a página de login
             res.redirect('login');
+=======
+            res.redirect('/login');
+>>>>>>> 18900c9 (Feat: Views and integrations)
         }
     } catch (error) {
         console.error('Erro durante a autenticação:', error);
@@ -46,8 +54,7 @@ async function login(req, res) {
 
 async function welcome(req, res) {
     const { username, tipo } = req.query;
-    // Renderizar a página de boas-vindas com os dados do usuário
-    res.render('welcome', { usuario: username, tipo: tipo });
+    res.render('adm/welcome', { usuario: username, tipo: tipo });
 }
 
 module.exports = { login, welcome };

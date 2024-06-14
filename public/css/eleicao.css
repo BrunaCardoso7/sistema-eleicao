@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #151269;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    text-decoration: none;
+    user-select: none;
+}
+.header{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    background-color: #0f1056;
+}
+.header-value {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: fit-content;
+    gap: 50px;
+}
+.header-value h2{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.button-left{
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+}
+.button-left:hover {
+    background-color: #1e2097;
+    border-radius: 100%;
+}
+.button-left i {
+    color: white;
+    font-size: 1.4rem;
+}
+.main-conteiner {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+.conteiner-content{
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.card-eleicao{
+    width: 200px;
+    height: 200px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.233); 
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #aad6ec;
+}
+.card-eleicao:hover{
+    background-color: #0056b3;
+}
+.content-card{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 12px;
+}
+.content-card i {
+    font-size: 4rem;
+    color: #0f1056;
+}
+.content-card p {
+    font-size: 1.5rem;
+    color: #0f1056;
+    font-weight: 500;
+    text-align: center;
+}
+.conteiner-start {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 24px;
+}
+.conteiner-start h2 {
+    color: white;
+    font-size: 1.5rem;
+}

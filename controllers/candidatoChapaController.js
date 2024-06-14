@@ -22,6 +22,16 @@ async function findAllCandidatoChapaController (req, res) {
         throw error
     }
 }
+async function findCandidatoByEleicaoController (req, res) {
+    try {
+        const eleicaoId = req.params.id
+        const candidatoChapa = await candidatoChapaModel.findAllCandidatoChapa()
+
+        return res.status(200).send({"data": candidatoChapa})
+    } catch (error) {
+        throw error
+    }
+}
 
 async function deleteByIdCandidatoChapaController (req, res) {
     try {
@@ -51,5 +61,6 @@ module.exports = {
     createCandidatoChapaController,
     findAllCandidatoChapaController,
     deleteByIdCandidatoChapaController,
-    updateByIdCandidatoChapaController
+    updateByIdCandidatoChapaController,
+    findCandidatoByEleicaoController
 }

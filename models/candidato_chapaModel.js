@@ -20,6 +20,15 @@ async function findAllCandidatoChapa() {
         throw error
     }
 }
+async function findAllCandidatoChapa() {
+    try {
+        const [cadidatoChapa] = await pool.query('SELECT * FROM CandidatoChapa')
+        return cadidatoChapa
+    } catch (error) {
+        throw error
+    }
+}
+
 
 async function deleteByIdCandidatoChapa(id) {
     try {

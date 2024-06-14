@@ -1,6 +1,7 @@
 //resp pelo controle e chamada da aplicacao
 
 const fornecedorModel = require('../models/fornecedorModel');
+
 async function listFornecedores(req, res) {
     try {
         const fornecedores = await fornecedorModel.getAllFornecedores();

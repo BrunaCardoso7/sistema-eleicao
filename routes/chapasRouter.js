@@ -3,8 +3,9 @@ const router = express.Router()
 const chapasControllers = require('../controllers/chapasController')
 
 router.post('/', chapasControllers.createChapasController)
+router.get('/:id', chapasControllers.findAllChapasByEleicaoController)
 router.get('/', chapasControllers.findAllChapasController)
-router.delete('/', chapasControllers.deleteByIdChapaController)
+router.delete('/:id', chapasControllers.deleteByIdChapaController)
 router.patch('/', chapasControllers.updateByIdChapaController)
 
 module.exports = router

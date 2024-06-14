@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fornecedores</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            <link rel="stylesheet" href="/css/style.css">
+
+        </head>
+        <body>
+            <header class="header">
+                <div class="header-value">
+                    <button class="button-left">
+                        <a class="a-left" href="/"><i class="fa-solid fa-chevron-left"></i></a>
+                    </button>
+                    <div class="text-header">
+                        <h2>Sistema de Eleição</h2>
+                        <p class="subtitle">Cadastre aqui uma nova eleição!</p>
+                    </div>
+                </div>
+            </header>
+            <main>
+                    <div class="container">
+                        <h2>Nova Eleição</h2>
+                        <form action="/eleicao" method="POST">
+                            <div>
+                                <label for="date">Data da Eleição:</label><br>
+                                <input type="date" id="data" name="data" required><br>
+                            </div>
+                            <div>
+                                <label for="local">Local da Eleição:</label>
+                                <input type="text" id="local" name="local" placeholder="Insira o local..." required><br>
+                            </div>
+                            <div>
+                                <label for="horaInicial">Hora Inicial da Eleição:</label>
+                                <input type="time" id="horaInicial" name="horaInicial" required><br>
+                            </div>
+                            <div>
+                                <label for="horaFinal">Hora Final da Eleição:</label>
+                                <input type="time" id="horaFinal" name="horaFinal" required><br>
+                            </div>
+                            <br>
+                            <button type="submit">Cadastrar</button>
+                        </form>
+                        <br>
+                        <a href="/">Cancelar</a>
+                    </div>
+            </main>
+        </body>
+</html>

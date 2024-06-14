@@ -22,6 +22,18 @@ async function findAllEleicao() {
     }
 }
 
+async function findByIdEleicao(id) {
+    try {
+        const [eleicao] = await pool.query('SELECT * FROM Eleicao WHERE EleicaoID = ?',
+            [id]
+        )
+
+        return eleicao
+    } catch (error) {
+        throw error
+    }
+}
+
 async function deleteByIdEleicao(id) {
     try {
         const eleicao = await pool.query('DELETE FROM Eleicao WHERE EleicaoID = ?', [id])
@@ -49,5 +61,6 @@ module.exports = {
     createEleicao,
     findAllEleicao,
     deleteByIdEleicao,
-    updateEleicao
+    updateEleicao,
+    findByIdEleicao
 }

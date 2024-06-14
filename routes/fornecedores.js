@@ -14,7 +14,9 @@ router.get('/cadastrar', (req, res) => {
     res.render('cadastrar');
 });
 router.post('/cadastrar', fornecedorController.addFornecedor);
+
 router.get('/:id', fornecedorController.showFornecedor);
+
 // Rota para exibir página de edição de fornecedor
 router.get('/:id/edit', fornecedorController.showEditForm);
 // Rota para lidar com ação de edição de fornecedor

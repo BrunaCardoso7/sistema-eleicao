@@ -1,10 +1,10 @@
 const pool = require('../db')
 
-async function createChapas(eleitorId, chapaId, dataHora) {
+async function createChapas(nome, eleicao_id) {
     try {
-        await pool.query('INSERT INTO Voto (EleitorID, ChapaID, DataHora) VALUES (?, ?, ?)',
-        [eleitorId, chapaId, dataHora])
-        const [chapas] = await pool.query('SELECT * FROM Voto WHERE nome  LIKE ?',
+        await pool.query('INSERT INTO Chapa (Nome, EleicaoID) VALUES (?, ?)',
+        [nome, eleicao_id])
+        const [chapas] = await pool.query('SELECT * FROM Chapa WHERE Nome  LIKE ?',
         [`%${nome}%`])
 
         return chapas
@@ -12,6 +12,7 @@ async function createChapas(eleitorId, chapaId, dataHora) {
         throw error
     }
 }
+
 async function findAllChapas() {
     try {
         const [chapa] = await pool.query('SELECT * FROM Voto')
@@ -20,6 +21,17 @@ async function findAllChapas() {
         throw error
     }
 }
+
+async function findAllByEleicaoChapas(id) {
+    try {
+        const [chapa] = await pool.query('SELECT * FROM Chapa WHERE EleicaoID = ?', 
+            [id])
+        return chapa
+    } catch (error) {
+        throw error
+    }
+}
+
 
 async function deleteByIdChapa(id) {
     try {
@@ -45,5 +57,6 @@ module.exports = {
     createChapas,
     findAllChapas,
     deleteByIdChapa,
-    updateChapa
+    updateChapa,
+    findAllByEleicaoChapas
 }

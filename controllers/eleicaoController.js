@@ -3,7 +3,7 @@ const eleicaoModel = require('../models/eleicaoModel')
 async function createEleicaoController (req, res) {
     try {
         const {data, local} = req.body
-        if (!data || !local) {
+        if (!data || !local ) {
             return res.status(400).send({"msg": "Falta dados"})
         }
         const eleicao = await eleicaoModel.createEleicao(data, local)
@@ -15,11 +15,36 @@ async function createEleicaoController (req, res) {
 
 async function findAllEleicaoController (req, res) {
     try {
-        const eleicao = await eleicaoModel.findAllEleicao()
+        const eleicoes = await eleicaoModel.findAllEleicao();
 
-        return res.status(200).send({"data": eleicao})
+        return res.render('eleicao/eleicao', { eleicoes });
     } catch (error) {
-        throw error
+        res.status(500).send(error.message);
+    }
+}
+
+async function findByIdEleicaoController (req, res) {
+    try {    
+        const id = req.params.id
+
+        const eleicao = await eleicaoModel.findByIdEleicao(id);
+        console.log(eleicao)
+        return res.render('eleicao/eleicaoHome', { eleicao });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
+
+async function findChapasByEleiçãoController (req, res) {
+    try {    
+        const id = req.params.id
+
+        const eleicao = await eleicaoModel.findByIdEleicao(id);
+        
+        return res.render('eleicao/eleicaoHome', { eleicaoId: id, eleicao });
+    } catch (error) {
+        res.status(500).send(error.message);
     }
 }
 
@@ -51,5 +76,7 @@ module.exports = {
     createEleicaoController,
     findAllEleicaoController,
     deleteByIdEleicaoController,
-    updateByIdEleicaoController
+    updateByIdEleicaoController,
+    findByIdEleicaoController,
+    findChapasByEleiçãoController
 }

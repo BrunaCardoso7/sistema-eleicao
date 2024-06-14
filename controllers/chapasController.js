@@ -3,12 +3,13 @@ const chapasModels = require('../models/chapasModel')
 async function createChapasController (req, res) {
     try {
         const {nome, eleicao_id} = req.body
-        //params
+    
         if (!nome || !eleicao_id) {
             return res.status(400).send({"msg": "Falta dados"})
         }
-        const chapas = await chapasModels.createChapas(nome, eleicao_id)
-        return res.status(200).send({"msg": "eleição criada com sucesso", chapas})
+        await chapasModels.createChapas(nome, eleicao_id)
+
+        return res.redirect(`/eleicao/${eleicao_id}/chapas`)
     } catch (error) {
         throw error
     }
@@ -24,11 +25,26 @@ async function findAllChapasController (req, res) {
     }
 }
 
+async function findAllChapasByEleicaoController(req, res) {
+    try {
+        const eleicaoId = req.params.id;
+
+        console.log('eleicaoId: ', eleicaoId)
+
+        const chapas = await chapasModels.findAllByEleicaoChapas(eleicaoId);
+        return res.render('eleicao/chapaHome', { chapas, eleicaoId });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Erro ao buscar chapas');
+    }
+}
+
+
 async function deleteByIdChapaController (req, res) {
     try {
-        const {id} = req.body
+        const {id} = req.params
 
-        const chapa = await chapasModels.deleteByIdChapa(id)
+        const chapa = await chapasModels.findAllByEleicaoChapas(id)
 
         return res.status(200).send({"Deletado com sucesso": chapa})
     } catch (error) {
@@ -52,5 +68,6 @@ module.exports = {
     createChapasController,
     findAllChapasController,
     deleteByIdChapaController,
-    updateByIdChapaController
+    updateByIdChapaController,
+    findAllChapasByEleicaoController
 }

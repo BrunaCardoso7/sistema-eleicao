@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // //requisicoes ao banco de dados
 
 // const pool = require('../db');
@@ -28,3 +29,13 @@ async function getUserByUsernameAndPassword(username, password) {
 }
 
 module.exports = { getUserByUsernameAndPassword };
+=======
+const pool = require('../db');
+async function getUserByUsernameAndPassword(username, password) {
+    const [rows] = await pool.execute('SELECT * FROM Administrador WHERE Nome = ? AND Senha = ?', [username,
+        password]);
+    return rows[0];
+}
+
+module.exports = { getUserByUsernameAndPassword };
+>>>>>>> 18900c9 (Feat: Views and integrations)
